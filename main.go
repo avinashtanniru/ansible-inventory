@@ -36,7 +36,7 @@ func accessLogHandler(next http.Handler) http.Handler {
         next.ServeHTTP(recorder, r)
 
         // Log the request along with status
-        log.Printf("[%s] %s %s %s - Status: %d", time.Now().Format(time.RFC3339), r.RemoteAddr, r.Method, r.URL.Path, recorder.	)
+        log.Printf("[%s] %s %s %s - Status: %d", time.Now().Format(time.RFC3339), r.RemoteAddr, r.Method, r.URL.Path, recorder)
     })
 }
 
@@ -127,7 +127,7 @@ func apbHandler(w http.ResponseWriter, r *http.Request, mongoFlagValue string, d
 
 	var fGroups = []string{
       "hosts",
-      "containers"
+      "containers",
 	}
 
 	for _, name := range fGroups {
