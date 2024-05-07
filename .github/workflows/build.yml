@@ -12,8 +12,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
-    container: centos:7
+    runs-on: centos:7
 
     steps:
     - name: Checkout code
