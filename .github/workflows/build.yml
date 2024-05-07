@@ -1,0 +1,34 @@
+name: Build and Archive My Code
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
+      - dev
+
+jobs:
+  build:
+    runs-on: self-hosted
+    container: centos:7
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: '1.22'
+
+    - name: Build
+      run: go build -o app main.go
+
+    - name: Archive
+      uses: actions/upload-artifact@v2
+      with:
+        name: app
+        path: app
