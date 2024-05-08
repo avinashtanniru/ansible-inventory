@@ -3,7 +3,7 @@ module github.com/avinashtanniru/ansible-inventory
 go 1.22.2
 
 require (
-	github.com/avinashtanniru/go-mod/adi v0.0.0
+	github.com/avinashtanniru/go-mod v0.0.3
 	go.mongodb.org/mongo-driver v1.10.6
 )
 
