@@ -36,7 +36,7 @@ func accessLogHandler(next http.Handler) http.Handler {
         next.ServeHTTP(recorder, r)
 
         // Log the request along with status
-        log.Printf("[%s] %s %s %s - Status: %d", time.Now().Format(time.RFC3339), r.RemoteAddr, r.Method, r.URL.Path, recorder)
+        log.Printf("[%s] %s %s %s - Status: %d", time.Now().Format(time.RFC3339), r.RemoteAddr, r.Method, r.URL.Path, recorder.status)
     })
 }
 
